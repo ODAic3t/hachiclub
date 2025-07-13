@@ -251,19 +251,50 @@ function initializeSubmenus() {
         
         // 電話サブメニューアイテムのクリック
         const phoneSubItems = phoneSubmenu.querySelectorAll('.mobile-nav-subitem');
-        phoneSubItems.forEach(item => {
+        console.log('Found phone sub items:', phoneSubItems.length);
+        
+        phoneSubItems.forEach((item, index) => {
+            console.log(`Setting up phone item ${index}:`, item.href);
+            
             item.addEventListener('click', function(e) {
-                // e.preventDefault()を呼び出さない（電話をかけるため）
+                console.log('Phone item clicked:', this.href);
+                
+                // イベントの伝播を止める
+                e.stopPropagation();
+                
+                // サブメニューを閉じる
                 phoneSubmenu.classList.remove('show');
                 
-                // 電話をかける（デフォルトの動作を許可）
-                console.log('Phone clicked:', this.href);
+                // 確実に電話をかける
+                const phoneNumber = this.href;
+                console.log('Attempting to call:', phoneNumber);
+                
+                // 複数の方法で電話をかける
+                try {
+                    // 方法1: window.location.href
+                    window.location.href = phoneNumber;
+                    
+                    // 方法2: window.open (フォールバック)
+                    setTimeout(() => {
+                        window.open(phoneNumber, '_self');
+                    }, 200);
+                    
+                } catch (error) {
+                    console.error('Error making phone call:', error);
+                    // 方法3: 新しいタブで開く (最後の手段)
+                    window.open(phoneNumber, '_blank');
+                }
             });
         });
     }
     
     // 外側をクリックしたらサブメニューを閉じる
     document.addEventListener('click', function(e) {
+        // 電話番号のリンクをクリックした場合は処理しない
+        if (e.target.closest('.mobile-nav-phone-submenu a')) {
+            return;
+        }
+        
         const isClickInsideSubmenu = e.target.closest('.mobile-nav-course') || 
                                    e.target.closest('.mobile-nav-phone-menu') ||
                                    e.target.closest('.mobile-nav-submenu') ||
