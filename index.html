@@ -20,15 +20,42 @@
                     <img src="image/logo2.png" alt="HACHI CLUB Logo" class="logo-icon">
                     HACHI CLUB
                 </div>
-                <div class="header-contact">
-                    <a href="tel:092-504-2323" class="phone-link">
-                        <i class="fas fa-phone"></i>
-                        092-504-2323
-                    </a>
+                <div class="header-menu">
+                    <button class="burger-menu" id="burgerMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </nav>
         </div>
     </header>
+
+    <!-- Burger Menu Dropdown -->
+    <div class="burger-dropdown" id="burgerDropdown">
+        <div class="burger-menu-content">
+            <a href="#top" class="burger-menu-item">
+                <i class="fas fa-home"></i>
+                <span>トップ</span>
+            </a>
+            <div class="burger-menu-item burger-menu-course">
+                <i class="fas fa-tooth"></i>
+                <span>コース</span>
+                <div class="burger-submenu">
+                    <a href="#basic-course" class="burger-submenu-item">BASIC</a>
+                    <a href="#option-course" class="burger-submenu-item">OPTION</a>
+                </div>
+            </div>
+            <a href="#supplement" class="burger-menu-item">
+                <i class="fas fa-gift"></i>
+                <span>特典</span>
+            </a>
+            <a href="#contact" class="burger-menu-item">
+                <i class="fas fa-envelope"></i>
+                <span>お問合せ・お申込</span>
+            </a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="top" class="hero">
@@ -580,7 +607,7 @@
             </a>
             <a href="#contact" class="mobile-nav-item">
                 <i class="fas fa-envelope"></i>
-                <span>問合せ・申込み</span>
+                <span>お問合せ・お申込</span>
             </a>
             <div class="mobile-nav-phone-menu">
                 <i class="fas fa-phone"></i>

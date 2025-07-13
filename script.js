@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // モバイルナビゲーション（簡素化版）
     initializeMobileNavigation();
+    
+    // バーガーメニュー
+    initializeBurgerMenu();
 });
 
 // FAQ機能の初期化（常に表示バージョン）
@@ -303,6 +306,113 @@ function initializeSubmenus() {
         if (!isClickInsideSubmenu) {
             if (courseSubmenu) courseSubmenu.classList.remove('show');
             if (phoneSubmenu) phoneSubmenu.classList.remove('show');
+        }
+    });
+}
+
+// バーガーメニューの初期化
+function initializeBurgerMenu() {
+    const burgerButton = document.getElementById('burgerMenu');
+    const burgerDropdown = document.getElementById('burgerDropdown');
+    
+    if (!burgerButton || !burgerDropdown) return;
+    
+    // バーガーメニューの開閉
+    burgerButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        burgerButton.classList.toggle('active');
+        burgerDropdown.classList.toggle('show');
+        
+        // 開いたときは他のサブメニューを閉じる
+        if (burgerDropdown.classList.contains('show')) {
+            const allSubmenus = burgerDropdown.querySelectorAll('.burger-submenu');
+            allSubmenus.forEach(submenu => submenu.classList.remove('show'));
+        }
+    });
+    
+    // サブメニューの処理
+    const courseMenu = burgerDropdown.querySelector('.burger-menu-course');
+    
+    if (courseMenu) {
+        courseMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const submenu = this.querySelector('.burger-submenu');
+            if (submenu) {
+                submenu.classList.toggle('show');
+                
+                // 他のサブメニューを閉じる
+                const otherSubmenus = burgerDropdown.querySelectorAll('.burger-submenu');
+                otherSubmenus.forEach(menu => {
+                    if (menu !== submenu) {
+                        menu.classList.remove('show');
+                    }
+                });
+            }
+        });
+        
+        // コースサブメニューアイテムのクリック
+        const courseSubItems = courseMenu.querySelectorAll('.burger-submenu-item');
+        courseSubItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // メニューを閉じる
+                burgerButton.classList.remove('active');
+                burgerDropdown.classList.remove('show');
+                
+                // スムーズスクロール
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    // 通常のメニューアイテムのクリック
+    const normalMenuItems = burgerDropdown.querySelectorAll('.burger-menu-item:not(.burger-menu-course)');
+    normalMenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // メニューを閉じる
+            burgerButton.classList.remove('active');
+            burgerDropdown.classList.remove('show');
+            
+            // スムーズスクロール
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
+            if (target) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // 外側をクリックしたらメニューを閉じる
+    document.addEventListener('click', function(e) {
+        if (!burgerButton.contains(e.target) && !burgerDropdown.contains(e.target)) {
+            burgerButton.classList.remove('active');
+            burgerDropdown.classList.remove('show');
+            
+            // サブメニューも閉じる
+            const allSubmenus = burgerDropdown.querySelectorAll('.burger-submenu');
+            allSubmenus.forEach(submenu => submenu.classList.remove('show'));
         }
     });
 }
