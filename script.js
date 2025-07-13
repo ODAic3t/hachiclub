@@ -254,7 +254,6 @@ function initializeMobileNavigation() {
         
         .mobile-nav-course.active {
             color: #f4de24;
-            background: rgba(244, 222, 36, 0.1);
         }
         
         .mobile-nav-course.active i {
@@ -281,7 +280,11 @@ function initializeMobileNavigation() {
         
         @media (max-width: 768px) {
             .mobile-nav-item.active {
-                background: rgba(244, 222, 36, 0.1);
+                color: #f4de24;
+            }
+            
+            .mobile-nav-course.active {
+                background: none;
             }
         }
     `;
