@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="image/logo2.png">
+    <link rel="shortcut icon" href="image/logo2.png">
 </head>
 <body>
     <!-- Header -->
@@ -15,7 +17,7 @@
         <div class="container">
             <nav class="nav">
                 <div class="logo">
-                    <i class="fas fa-tooth"></i>
+                    <img src="image/logo2.png" alt="HACHI CLUB Logo" class="logo-icon">
                     HACHI CLUB
                 </div>
                 <div class="header-contact">
@@ -29,7 +31,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="top" class="hero">
         <div class="hero-background">
             <div class="hero-overlay"></div>
         </div>
@@ -40,6 +42,14 @@
                     あなたの<span class="highlight">ココロと身体</span>の<br>
                     健康を守ります。
                 </h1>
+                <div class="hero-theme">
+                    <div class="theme-label">
+                        <span class="theme-label-text">テーマ</span>
+                    </div>
+                    <div class="theme-badge">
+                        <span class="theme-text">- 炎症を知る戦う -</span>
+                    </div>
+                </div>
                 <div class="hero-offer">
                     <h2 class="offer-title">年間会員制「HACHI CLUB」2025</h2>
                     <div class="offer-period">2025年4月〜2026年3月末まで</div>
@@ -57,19 +67,344 @@
                         <i class="fas fa-phone"></i>
                         092-504-2323
                     </a>
+                    <p class="additional-info">
+                        現在通院中の方は歯科衛生士に加入の意思をお伝えください
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Basic Course Section -->
+    <section id="basic-course" class="basic-course">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-tooth"></i>
+                    BASICコース
+                </h2>
+                <div class="character-container">
+                    <img src="image/bunpachi.png" alt="ぶんぱちキャラクター" class="character-image character-bunpachi">
+                </div>
+            </div>
+            
+            <!-- お口の炎症チェック検査 -->
+            <div class="inflammation-check">
+                <h3 class="check-title">お口の炎症チェック検査</h3>
+                <div class="check-grid">
+                    <div class="check-item">
+                        <h4>お口の細菌バランス検査</h4>
+                        <div class="check-price">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="check-item">
+                        <h4>唾液検査</h4>
+                        <div class="check-price">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="check-item">
+                        <h4>口臭検査</h4>
+                        <div class="check-price">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 炎症の原因は？！＝生活習慣チェック -->
+            <div class="lifestyle-check">
+                <h3 class="check-title">炎症の原因は？！＝生活習慣チェック</h3>
+                <div class="check-grid">
+                    <div class="check-item">
+                        <h4>血糖値検査</h4>
+                        <div class="check-price">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="check-item personal-nutrition">
+                        <h4>パーソナル栄養検査</h4>
+                        <p class="check-description">管理栄養士の事前ヒアリング/検査指導/結果分析込み</p>
+                        <div class="check-price">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 22,000円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="discounted-text">11,000円（税込）</span>
+                            </div>
+                        </div>
+                        <div class="nutrition-guidance">
+                            <span class="guidance-label">栄養指導</span>
+                            <span class="guidance-price">6,600円（税込）</span>
+                            <div class="guidance-benefit">
+                                <span class="play-icon">▶</span>
+                                <span class="guidance-text">2回目以降 3,300円（税込）</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 総合お得情報 -->
+                <div class="total-savings">
+                    <div class="savings-highlight">
+                        <i class="fas fa-star"></i>
+                        <span class="savings-text">すべての検査を行うと最大で36,300円お得！</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Option Course Section -->
+    <section id="option-course" class="option-course">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    OPTIONコース
+                </h2>
+                <p class="section-subtitle">（BASIC加入が必須）</p>
+                <p class="section-description">会員価格でさらに充実のケアが可能です。</p>
+            </div>
+            
+            <!-- オススメ：セラミックコース -->
+            <div class="option-recommended">
+                <div class="recommended-header">
+                    <div class="recommended-badge">
+                        <span class="recommended-icon">⭐</span>
+                        <span class="recommended-text">オススメ</span>
+                    </div>
+                </div>
+                <div class="option-section">
+                    <div class="option-header">
+                        <h3 class="option-title">セラミックコース</h3>
+                        <div class="option-price">5,500円（税込）</div>
+                    </div>
+                    <p class="option-description">被せ物詰め物が必要になってしまった歯には、セラミックがオススメです。細菌、炎症コントロールも、保険の補綴に比べると断然◎</p>
+                    <div class="ceramic-benefits">
+                        <div class="ceramic-discount">
+                            <div class="discount-highlight">
+                                <span class="discount-rate">1歯当たり10%OFF</span>
+                                <p class="discount-example">2歯の場合：割引額15,600円〜</p>
+                                <p class="discount-note">※セラミックコース入会で、前歯ハイグレード補綴セット価格も適用</p>
+                            </div>
+                        </div>
+                        <div class="ceramic-conditions">
+                            <ul class="condition-list">
+                                <li>78,000円（税抜）以上の自費補綴治療に適用</li>
+                                <li>会員期間中セラミック補綴のご契約に適用</li>
+                                <li>何度でも会員割引適用</li>
+                                <li>セット割引や他割引との併用はできません</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- スペシャルメンテナンスコース -->
+            <div class="option-section">
+                <div class="option-header">
+                    <h3 class="option-title">スペシャルメンテナンスコース</h3>
+                    <div class="option-price">880円（税込）</div>
+                </div>
+                <p class="option-description">メンテナンスにプラスすることで、お口の中の細菌数をより減らし炎症と戦う</p>
+                <div class="option-content-grid">
+                    <div class="option-item">
+                        <h4>パウダーメンテナンス</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">初回無料</span>
+                            </div>
+                            <p class="benefit-note">2回目以降 1,100円（税込）、3回目以降もセット価格</p>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <h4>メンテナンス特典</h4>
+                        <div class="option-benefit">
+                            <p class="benefit-detail">メンテナンスに通われる方に月1回プレゼント</p>
+                            <p class="benefit-detail">口腔ケア商品（下記の中からひとつ）</p>
+                            <div class="benefit-goods-image">
+                                <img src="image/benefits_goods.png" alt="口腔ケア商品一覧" class="goods-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 歯並び・噛み合わせコース -->
+            <div class="option-section">
+                <div class="option-header">
+                    <h3 class="option-title">歯並び・噛み合わせコース</h3>
+                    <div class="option-price">880円（税込）</div>
+                </div>
+                <p class="option-description">歯並びのシミュレーションや、噛み合わせを可視化することによって、これからの治療や歯周病の予測と予防を行い炎症と戦う</p>
+                <div class="option-content-grid">
+                    <div class="option-item">
+                        <h4>歯並び検査</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 16,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <h4>噛み合わせ検査</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 16,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <h4>咬合力検査</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">1回無料</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ビューティーコース -->
+            <div class="option-section">
+                <div class="option-header">
+                    <h3 class="option-title">ビューティーコース</h3>
+                    <div class="option-price">5,500円（税込）</div>
+                </div>
+                <p class="option-description">お口の中の細菌数をコントロールし、マッサージなどの生体の力でもお口の環境や笑顔を作りやすくすることで炎症と戦う</p>
+                <div class="option-content-grid">
+                    <div class="option-item">
+                        <h4>ホームホワイトニング</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <div class="benefit-badge discount-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="discount-text">10,000円割引</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <h4>オーラルセラピー</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 3,300円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">初回無料</span>
+                            </div>
+                            <p class="benefit-note">会員価格 1,100円（税込）</p>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <h4>リップクレンジング</h4>
+                        <div class="option-benefit">
+                            <span class="normal-text">Hachi Club 会員特典</span>
+                            <span class="normal-price">通常 5,500円（税込）</span>
+                            <div class="benefit-badge">
+                                <span class="play-icon">▶</span>
+                                <span class="free-text">初回無料</span>
+                            </div>
+                            <p class="benefit-note">会員価格 3,300円（税込）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Supplement Section -->
+    <section id="supplement" class="supplement">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-pills"></i>
+                    サプリメント特典
+                </h2>
+            </div>
+            <div class="supplement-content">
+                <p class="supplement-intro">体の内側から炎症にアプローチできるオリジナルサプリメントが<span class="discount">20%OFF！</span></p>
+                <div class="supplement-list">
+                    <div class="supplement-item vitamin-c-item">
+                        <div class="supplement-image vitamin-c-image">
+                            <img src="image/vitaminc.png" alt="ビタミンC" class="supplement-img">
+                        </div>
+                        <div class="supplement-text">
+                            <h3>粘膜や免疫を高めるビタミンC</h3>
+                            <h4>『Ｃ1000＋Ｂ』</h4>
+                            <p>ビタミンＣに加え、ビタミンＢ群を配合。ビタミンＰの一種であるルチンとヘスペリジンも組み合わせています。</p>
+                        </div>
+                    </div>
+                    <div class="supplement-item protein-item">
+                        <div class="supplement-image protein-image">
+                            <img src="image/protein.png" alt="ホエイプロテイン" class="supplement-img">
+                        </div>
+                        <div class="supplement-text">
+                            <h3>ホエイプロテイン</h3>
+                            <h4>『Recover』</h4>
+                            <p>必須の栄養素を補うためにデザインされた画期的なプロテインです。1 食分( 約30g) で以下の摂取が可能です。</p>
+                            <ul class="protein-nutrients">
+                                <li>■MCT オイルパウダー 約5g</li>
+                                <li>■黒糖 約3g</li>
+                                <li>■クラスターデキストリン 約5g</li>
+                                <li>■たんぱく質 約10g</li>
+                                <li>■マグネシウム 約30 ㎎ ( 塩化マグネシウム)</li>
+                                <li>■亜鉛　約5 ㎎ ( 亜鉛含有酵母)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Philosophy Section -->
-    <section class="philosophy">
+    <section id="philosophy" class="philosophy">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <i class="fas fa-stethoscope"></i>
                     はちクラブの想い
                 </h2>
+                <div class="character-container">
+                    <img src="image/hakun_shikun.png" alt="はくん・しくんキャラクター" class="character-image character-hakun">
+                </div>
             </div>
             <div class="philosophy-content">
                 <div class="philosophy-intro">
@@ -93,157 +428,8 @@
         </div>
     </section>
 
-    <!-- Basic Course Section -->
-    <section class="basic-course">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-tooth"></i>
-                    BASICコース
-                </h2>
-            </div>
-            <div class="course-grid">
-                <div class="course-content">
-                    <h3>内容</h3>
-                    <ul class="course-features">
-                        <li><i class="fas fa-check"></i>お口の炎症チェック</li>
-                        <li><i class="fas fa-check"></i>生活習慣チェック</li>
-                        <li><i class="fas fa-check"></i>唾液検査</li>
-                        <li><i class="fas fa-check"></i>口臭検査</li>
-                        <li><i class="fas fa-check"></i>お口の細菌バランス検査</li>
-                    </ul>
-                    <div class="price-info">
-                        <div class="original-price">通常合計：約16,500円相当</div>
-                        <div class="member-price">→ 会員特典で<span class="free">無料！</span></div>
-                    </div>
-                </div>
-                <div class="course-benefits">
-                    <h3>特典</h3>
-                    <div class="benefit-item">
-                        <span class="benefit-name">パーソナル栄養検査</span>
-                        <div class="benefit-price">
-                            <span class="original">22,000円</span>
-                            <span class="arrow">→</span>
-                            <span class="discounted">11,000円</span>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-name">血糖値検査</span>
-                        <div class="benefit-price">
-                            <span class="original">5,500円</span>
-                            <span class="arrow">→</span>
-                            <span class="free">無料</span>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-name">栄養指導</span>
-                        <div class="benefit-price">
-                            <span class="detail">初回無料、2回目以降3,300円</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Option Course Section -->
-    <section class="option-course">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-star"></i>
-                    OPTIONコース
-                </h2>
-                <p class="section-subtitle">（BASIC加入が必須）</p>
-                <p class="section-description">会員価格でさらに充実のケアが可能です。</p>
-            </div>
-            <div class="option-grid">
-                <div class="option-card">
-                    <h3>スペシャルメンテナンスコース</h3>
-                    <div class="option-content">
-                        <p><strong>パウダーメンテナンス：</strong>初回無料、以降1,100円</p>
-                        <p class="option-desc">細菌数を減らし、炎症と戦う</p>
-                    </div>
-                </div>
-                <div class="option-card">
-                    <h3>歯並び・噛み合わせコース</h3>
-                    <div class="option-content">
-                        <p><strong>咬合力・噛み合わせ検査：</strong>通常16,500円 → 無料</p>
-                        <p class="option-desc">将来の炎症や疾患の予防に</p>
-                    </div>
-                </div>
-                <div class="option-card">
-                    <h3>ビューティーコース</h3>
-                    <div class="option-content">
-                        <p><strong>ホワイトニング、オーラルセラピー：</strong>初回無料、会員価格で継続可</p>
-                    </div>
-                </div>
-                <div class="option-card">
-                    <h3>セラミックコース</h3>
-                    <div class="option-content">
-                        <p><strong>セラミック補綴10%OFF</strong>（会員期間中）</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Supplement Section -->
-    <section class="supplement">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-pills"></i>
-                    サプリメント特典
-                </h2>
-            </div>
-            <div class="supplement-content">
-                <p class="supplement-intro">体の内側から炎症にアプローチできるオリジナルサプリメントが<span class="discount">20%OFF！</span></p>
-                <div class="supplement-list">
-                    <div class="supplement-item">
-                        <i class="fas fa-leaf"></i>
-                        <span>ビタミンC</span>
-                    </div>
-                    <div class="supplement-item">
-                        <i class="fas fa-dumbbell"></i>
-                        <span>ホエイプロテイン</span>
-                    </div>
-                    <div class="supplement-item">
-                        <span>など</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-user-md"></i>
-                    お問い合わせはこちら
-                </h2>
-            </div>
-            <div class="contact-content">
-                <p class="contact-intro">お口の健康は、全身の健康の第一歩です。<br>
-                ぜひ「はちクラブ」で一緒に健康な毎日を守りましょう！</p>
-                <div class="contact-cta">
-                    <p class="cta-text">
-                        <i class="fas fa-phone"></i>
-                        ご不明点やご相談は、お気軽にお電話ください！
-                    </p>
-                    <a href="tel:092-504-2323" class="btn btn-secondary">
-                        <i class="fas fa-phone"></i>
-                        092-504-2323
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
-    <section class="faq">
+    <section id="faq" class="faq">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
@@ -274,34 +460,142 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-user-md"></i>
+                    お問い合わせ・お申し込み
+                </h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-intro">お口の健康は、全身の健康の第一歩です。<br>
+                ぜひ「はちクラブ」で一緒に健康な毎日を守りましょう！</p>
+                <div class="contact-cta">
+                    <p class="additional-info">
+                        現在通院中の方は歯科衛生士に加入の意思をお伝えください
+                    </p>
+                </div>
+
+            </div>
+            <div class="clinic-grid">
+                <div class="clinic-card">
+                    <div class="clinic-info">
+                        <h3 class="clinic-name">大野城はち歯科医院</h3>
+                        <p class="clinic-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            福岡県大野城市川久保1-12-10
+                        </p>
+                        <p class="clinic-phone">
+                            <i class="fas fa-phone"></i>
+                            092-504-2323
+                        </p>
+
+                    </div>
+                    <div class="clinic-actions">
+                        <a href="https://hachishika.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                            <i class="fas fa-globe"></i>
+                            ホームページ
+                        </a>
+                        <a href="tel:092-504-2323" class="btn btn-primary">
+                            <i class="fas fa-phone"></i>
+                            電話する
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="clinic-card">
+                    <div class="clinic-info">
+                        <h3 class="clinic-name">桜並木はち歯科医院</h3>
+                        <p class="clinic-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            福岡県福岡市博多区竹丘町3丁目4番1号
+                        </p>
+                        <p class="clinic-phone">
+                            <i class="fas fa-phone"></i>
+                            092-404-2098
+                        </p>
+
+                    </div>
+                    <div class="clinic-actions">
+                        <a href="https://hachishika.com/sakuranamiki/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                            <i class="fas fa-globe"></i>
+                            ホームページ
+                        </a>
+                        <a href="tel:092-404-2098" class="btn btn-primary">
+                            <i class="fas fa-phone"></i>
+                            電話する
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-footer">
+                <p class="cta-text">
+                    <i class="fas fa-comments"></i>
+                    ご不明点やご相談は、上記の医院までお気軽にお電話ください！
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-tooth"></i>
+                    <img src="image/logo2.png" alt="HACHI CLUB Logo" class="footer-logo-icon">
                     HACHI CLUB
                 </div>
-                <div class="footer-contact">
-                    <a href="tel:092-504-2323" class="footer-phone">
-                        <i class="fas fa-phone"></i>
-                        092-504-2323
-                    </a>
-                </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2025 HACHI CLUB. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Phone Button -->
-    <div class="mobile-phone-button">
-        <a href="tel:092-504-2323" class="mobile-phone-link">
-            <i class="fas fa-phone"></i>
-            <span>お電話でのご相談</span>
-        </a>
-    </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-menu">
+            <a href="#top" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>トップ</span>
+            </a>
+            <div class="mobile-nav-item mobile-nav-course">
+                <i class="fas fa-tooth"></i>
+                <span>コース</span>
+                <div class="mobile-nav-submenu">
+                    <a href="#basic-course" class="mobile-nav-subitem">
+                        <span>BASIC</span>
+                    </a>
+                    <a href="#option-course" class="mobile-nav-subitem">
+                        <span>OPTION</span>
+                    </a>
+                </div>
+            </div>
+            <a href="#supplement" class="mobile-nav-item">
+                <i class="fas fa-pills"></i>
+                <span>特典</span>
+            </a>
+            <a href="#contact" class="mobile-nav-item">
+                <i class="fas fa-envelope"></i>
+                <span>問合せ・申込み</span>
+            </a>
+            <div class="mobile-nav-item mobile-nav-phone-menu">
+                <i class="fas fa-phone"></i>
+                <span>電話</span>
+                <div class="mobile-nav-submenu mobile-nav-phone-submenu">
+                    <a href="tel:092-504-2323" class="mobile-nav-subitem">
+                        <span>大野城</span>
+                    </a>
+                    <a href="tel:092-404-2098" class="mobile-nav-subitem">
+                        <span>桜並木</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <script src="script.js"></script>
 </body>

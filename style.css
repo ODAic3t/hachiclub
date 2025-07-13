@@ -7,20 +7,20 @@
 
 /* Root Variables */
 :root {
-    --primary-color: #FFD700;
-    --secondary-color: #FFC107;
-    --accent-color: #F1C40F;
+    --primary-color: #B8860B;
+    --secondary-color: #DAA520;
+    --accent-color: #9A7209;
     --text-dark: #2C3E50;
     --text-light: #7F8C8D;
     --background-light: #FFFFFF;
-    --background-section: #FFFEF7;
+    --background-section: #fefdf5;
     --success-color: #27AE60;
     --warning-color: #E74C3C;
-    --border-color: #FFF3CD;
+    --border-color: #f9f3c7;
     --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
     --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --gradient-hero: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 193, 7, 0.9));
+    --gradient-hero: linear-gradient(135deg, rgba(244, 222, 36, 0.9), rgba(230, 198, 26, 0.9));
 }
 
 /* Base Styles */
@@ -82,18 +82,26 @@ p {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #f4de24;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .logo i {
     font-size: 1.8rem;
 }
 
+.logo-icon {
+    height: 48px;
+    width: auto;
+    max-width: 70px;
+    object-fit: contain;
+}
+
 .phone-link {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 25px;
@@ -116,7 +124,7 @@ p {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFD700;stop-opacity:0.8" /><stop offset="100%" style="stop-color:%23FFC107;stop-opacity:0.9" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23grad1)"/><circle cx="200" cy="150" r="100" fill="white" opacity="0.1"/><circle cx="800" cy="200" r="150" fill="white" opacity="0.05"/><circle cx="1000" cy="600" r="120" fill="white" opacity="0.08"/></svg>') center/cover;
+    background: url('image/hachiclub_kv3.webp') center/cover no-repeat;
     color: white;
     text-align: center;
     padding-top: 120px;
@@ -128,7 +136,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-hero);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
@@ -141,28 +149,87 @@ p {
 .hero-title {
     font-size: 3rem;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     animation: fadeInUp 1s ease-out;
 }
 
 .highlight {
-    color: var(--accent-color);
+    color: var(--secondary-color);
     font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.hero-theme {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.1s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-label {
+    display: inline-block;
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(244, 222, 36, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 0;
+    order: 1;
+}
+
+.theme-label-text {
+    letter-spacing: 0.05em;
+}
+
+.theme-badge {
+    display: inline-block;
+    background: transparent;
+    color: #f4de24;
+    padding: 0;
+    border-radius: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    transition: all 0.3s ease;
+    order: 2;
+}
+
+.theme-badge:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.theme-text {
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .hero-offer {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     color: var(--text-dark);
     padding: 2rem;
     border-radius: 15px;
     margin: 2rem 0;
     box-shadow: var(--shadow-medium);
     animation: fadeInUp 1s ease-out 0.2s both;
+    border: 2px solid rgba(244, 222, 36, 0.3);
 }
 
 .offer-title {
-    color: var(--primary-color);
+    color: #f4de24;
     margin-bottom: 1rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .offer-period {
@@ -189,7 +256,8 @@ p {
 .price {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #f4de24;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .hero-cta {
@@ -203,6 +271,25 @@ p {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.additional-info {
+    font-size: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Buttons */
@@ -221,13 +308,13 @@ p {
 }
 
 .btn-primary {
-    background: var(--accent-color);
+    background: var(--text-dark);
     color: white;
     box-shadow: var(--shadow-light);
 }
 
 .btn-primary:hover {
-    background: #E6C200;
+    background: #1e2a38;
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
 }
@@ -241,6 +328,39 @@ p {
 .btn-secondary:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
+}
+
+/* Character Images */
+.character-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.character-image {
+    width: 240px;
+    height: auto;
+    margin: 0 auto;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.character-bunpachi {
+    width: 200px;
+}
+
+.character-hakun {
+    width: 220px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* Sections */
@@ -258,12 +378,13 @@ section {
 }
 
 .section-title {
-    color: var(--primary-color);
+    color: #f4de24;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .section-title i {
@@ -295,8 +416,9 @@ section {
 .intro-text {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--primary-color);
+    color: #f4de24;
     margin-bottom: 2rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .philosophy-details p {
@@ -325,102 +447,185 @@ section {
     background: var(--background-light);
 }
 
-.course-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+/* Check sections */
+.inflammation-check,
+.lifestyle-check {
+    margin-bottom: 3rem;
 }
 
-.course-content h3,
-.course-benefits h3 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-}
-
-.course-features {
-    list-style: none;
+.check-title {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 2rem;
-}
-
-.course-features li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
-}
-
-.course-features i {
-    color: var(--success-color);
-    font-size: 1.2rem;
-}
-
-.price-info {
-    background: var(--background-section);
-    padding: 1.5rem;
-    border-radius: 10px;
     text-align: center;
 }
 
-.original-price {
-    color: var(--text-light);
-    text-decoration: line-through;
-    margin-bottom: 0.5rem;
+.check-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.member-price {
-    font-size: 1.2rem;
+.check-item {
+    background: var(--background-light);
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.check-item:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.check-item h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--primary-color);
-}
-
-.free {
-    color: var(--accent-color);
-    font-weight: 700;
-    font-size: 1.3rem;
-}
-
-.benefit-item {
-    background: var(--background-section);
-    padding: 1rem;
-    border-radius: 8px;
     margin-bottom: 1rem;
 }
 
-.benefit-name {
-    display: block;
-    font-weight: 600;
+.check-description {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.check-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.normal-text {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.normal-price {
+    color: var(--text-light);
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
-.benefit-price {
+.benefit-badge {
+    background: #f4de24;
+    color: var(--text-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-weight: 600;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.play-icon {
+    color: var(--text-dark);
+    font-size: 0.8rem;
+}
+
+.free-text {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.discounted-text {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* Personal nutrition special styling */
+.personal-nutrition {
+    grid-column: span 2;
+    min-height: auto;
+}
+
+.nutrition-guidance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
-.original {
-    text-decoration: line-through;
-    color: var(--text-light);
-}
-
-.arrow {
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-.discounted {
-    color: var(--primary-color);
+.guidance-label {
+    color: var(--text-dark);
     font-weight: 600;
 }
 
-.detail {
+.guidance-price {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.guidance-benefit {
+    background: #f4de24;
     color: var(--text-dark);
-    font-style: italic;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.guidance-text {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* Total Savings Section */
+.total-savings {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.savings-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #E74C3C, #C0392B);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+.savings-highlight i {
+    font-size: 1.3rem;
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.savings-text {
+    letter-spacing: 0.02em;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 6px 25px rgba(231, 76, 60, 0.6);
+        transform: scale(1.02);
+    }
 }
 
 /* Option Course Section */
@@ -428,42 +633,268 @@ section {
     background: var(--background-section);
 }
 
-.option-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.option-card {
-    background: var(--background-light);
+/* Option Recommended Section */
+.option-recommended {
+    margin-bottom: 3rem;
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-light);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    background: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(244, 222, 36, 0.15);
+    border: 2px solid #f4de24;
+    position: relative;
+    overflow: hidden;
 }
 
-.option-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-    border-color: var(--secondary-color);
+.option-recommended::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(244, 222, 36, 0.05), rgba(230, 198, 26, 0.05));
+    pointer-events: none;
 }
 
-.option-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+.recommended-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.recommended-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
+    color: var(--text-dark);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px rgba(244, 222, 36, 0.3);
+    animation: pulse-gold 2s ease-in-out infinite;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.recommended-icon {
     font-size: 1.2rem;
+    animation: pulse-star 2s ease-in-out infinite;
 }
 
-.option-content p {
-    margin-bottom: 0.8rem;
+.recommended-text {
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
-.option-desc {
+@keyframes pulse-star {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.option-recommended .option-section {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Option Section Styling */
+.option-section {
+    background: var(--background-light);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-light);
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.option-section:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.option-title {
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.option-price {
+    background: linear-gradient(135deg, #3498DB, #2980B9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.option-description {
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.option-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.option-item {
+    background: var(--background-section);
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.option-item:hover {
+    box-shadow: var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.option-item h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.option-benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.benefit-note {
     color: var(--text-light);
-    font-style: italic;
     font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.benefit-detail {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Benefits Goods Image */
+.benefit-goods-image {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.goods-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.goods-image:hover {
+    transform: scale(1.02);
+}
+
+.discount-badge {
+    background: linear-gradient(135deg, #E67E22, #D35400) !important;
+}
+
+.discount-text {
+    color: white;
+    font-weight: 700;
+}
+
+/* Ceramic Course Special Styling */
+.ceramic-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ceramic-discount {
+    text-align: center;
+}
+
+.discount-highlight {
+    background: linear-gradient(135deg, #E74C3C, #C0392B);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.discount-rate {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.discount-example {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: #FFD700;
+    text-shadow: 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.discount-note {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+.ceramic-conditions {
+    background: var(--background-section);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+.condition-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.condition-list li {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.5;
+}
+
+.condition-list li:before {
+    content: "★";
+    color: #f4de24;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
 
 /* Supplement Section */
@@ -498,17 +929,258 @@ section {
 
 .supplement-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    background: var(--gradient-primary);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 500;
+    gap: 1rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease;
+    text-align: center;
 }
 
-.supplement-item i {
-    font-size: 1.2rem;
+.supplement-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Text only supplement item (for など) */
+.supplement-text-only {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.supplement-text-only:hover {
+    transform: none !important;
+}
+
+.supplement-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 222, 36, 0.1);
+    border: 2px solid var(--primary-color);
+}
+
+.supplement-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.supplement-text {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Vitamin C Special Styling */
+.vitamin-c-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: left;
+    min-height: 200px;
+}
+
+.vitamin-c-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.vitamin-c-item .supplement-text {
+    flex: 1;
+}
+
+.vitamin-c-item .supplement-text h3 {
+    color: #f4de24;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.vitamin-c-item .supplement-text h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.vitamin-c-item .supplement-text p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* Protein Special Styling */
+.protein-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: left;
+    min-height: 250px;
+}
+
+.protein-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.protein-item .supplement-text {
+    flex: 1;
+}
+
+.protein-item .supplement-text h3 {
+    color: #f4de24;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.protein-item .supplement-text p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.protein-nutrients {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.protein-nutrients li {
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+}
+
+/* Contact Section */
+
+.clinic-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.clinic-card {
+    background: var(--background-light);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.clinic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-color);
+}
+
+.clinic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.clinic-info {
+    margin-bottom: 2rem;
+}
+
+.clinic-name {
+    color: #f4de24;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.clinic-address,
+.clinic-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.clinic-address i,
+.clinic-phone i {
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.clinic-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.feature-tag {
+    background: var(--background-section);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+.clinic-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Outline Button Style */
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
 }
 
 /* Contact Section */
@@ -530,6 +1202,25 @@ section {
 
 .contact-cta {
     margin-top: 2rem;
+}
+
+.contact .additional-info {
+    color: var(--primary-color);
+    background: rgba(244, 222, 36, 0.1);
+    border: 2px solid var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.contact-footer .cta-text {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 0;
 }
 
 /* FAQ Section */
@@ -596,33 +1287,29 @@ section {
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .footer-logo {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    color: #f4de24;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.footer-phone {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.footer-logo-icon {
+    height: 32px;
+    width: auto;
+    max-width: 50px;
+    object-fit: contain;
 }
 
-.footer-phone:hover {
-    color: var(--secondary-color);
-}
+
 
 .footer-bottom {
     text-align: center;
@@ -659,6 +1346,23 @@ section {
         margin-bottom: 1.5rem;
     }
     
+    .hero-theme {
+        margin-bottom: 1.5rem;
+        gap: 0.8rem;
+    }
+    
+    .theme-label {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 0;
+    }
+    
+    .theme-badge {
+        font-size: 1.6rem;
+        padding: 0;
+        transform: none;
+    }
+    
     .hero-offer {
         padding: 1.5rem;
         margin: 1.5rem 0;
@@ -673,30 +1377,240 @@ section {
         font-size: 2rem;
     }
     
-    .course-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    /* Clinic Cards Mobile Optimization */
+    .clinic-card {
+        padding: 1.5rem;
+        border-radius: 15px;
     }
     
-    .option-grid {
+    .clinic-actions {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
+    .clinic-actions .btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        min-height: 50px;
+        border-radius: 25px;
+    }
+    
+    .feature-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    /* Basic Course Mobile */
+    .check-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .personal-nutrition {
+        grid-column: span 1;
+    }
+    
+    .check-item {
+        padding: 1rem;
+    }
+    
+    .check-title {
+        font-size: 1.2rem;
+    }
+    
+    .benefit-badge {
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+    
+    .nutrition-guidance {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .total-savings {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .savings-highlight {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+    
+    .savings-highlight i {
+        font-size: 1.1rem;
+    }
+    
+    /* Option Recommended Mobile */
+    .option-recommended {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .recommended-badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+    }
+    
+    .recommended-icon {
+        font-size: 1.1rem;
+    }
+    
+    .recommended-text {
+        font-size: 1rem;
+    }
+    
+    /* Option Course Mobile */
+    .option-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .option-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .option-title {
+        font-size: 1.2rem;
+    }
+    
+    .option-price {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .option-content-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .option-item {
+        padding: 1rem;
+    }
+    
+    /* Benefits Goods Image Mobile */
+    .benefit-goods-image {
+        margin-top: 0.8rem;
+    }
+    
+    .goods-image {
+        max-width: 100%;
+        min-width: 280px;
+        border-radius: 8px;
+    }
+    
+    .ceramic-benefits {
+        gap: 1.5rem;
+    }
+    
+    .discount-highlight {
+        padding: 1rem;
+    }
+    
+    .discount-rate {
+        font-size: 1.2rem;
+    }
+    
+    .discount-example {
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+    
+    .ceramic-conditions {
+        padding: 1rem;
+    }
+    
+    /* Ceramic Recommend Mobile */
     .supplement-list {
         flex-direction: column;
         gap: 1rem;
     }
     
-    .footer-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+    .supplement-image {
+        width: 60px;
+        height: 60px;
     }
+    
+    .supplement-text {
+        font-size: 0.9rem;
+    }
+    
+    /* Vitamin C Mobile Styling */
+    .vitamin-c-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .vitamin-c-image {
+        width: 156px;
+        height: 156px;
+    }
+    
+    .vitamin-c-item .supplement-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .vitamin-c-item .supplement-text h4 {
+        font-size: 1rem;
+    }
+    
+    .vitamin-c-item .supplement-text p {
+        font-size: 0.8rem;
+    }
+    
+    /* Protein Mobile Styling */
+    .protein-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .protein-image {
+        width: 156px;
+        height: 156px;
+    }
+    
+    .protein-item .supplement-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .protein-item .supplement-text p {
+        font-size: 0.8rem;
+    }
+    
+    .protein-nutrients li {
+        font-size: 0.75rem;
+    }
+    
+
     
     .nav {
         flex-direction: column;
         gap: 1rem;
         padding: 1rem 0;
+    }
+
+    .logo-icon {
+        height: 42px;
+        max-width: 65px;
+    }
+
+    .footer-logo-icon {
+        height: 28px;
+        max-width: 45px;
     }
     
     .section-title {
@@ -722,6 +1636,27 @@ section {
     .faq-answer {
         padding: 1rem;
     }
+    
+    /* Character Images - Mobile */
+    .character-image {
+        width: 160px;
+    }
+    
+    .character-bunpachi {
+        width: 140px;
+    }
+    
+    .character-hakun {
+        width: 150px;
+    }
+    
+    /* Additional Info - Mobile */
+    .additional-info {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+        max-width: 350px;
+        margin-top: 0.8rem;
+    }
 }
 
 /* iPhone 12 Pro and similar devices */
@@ -737,6 +1672,23 @@ section {
         line-height: 1.3;
     }
     
+    .hero-theme {
+        margin-bottom: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .theme-label {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+        margin-bottom: 0;
+    }
+    
+    .theme-badge {
+        font-size: 1.2rem;
+        padding: 0;
+        transform: none;
+    }
+    
     .hero-offer {
         padding: 1rem;
         margin: 1rem 0;
@@ -744,6 +1696,48 @@ section {
     
     .price {
         font-size: 1.7rem;
+    }
+    
+    .recommended-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .recommended-icon {
+        font-size: 0.9rem;
+    }
+    
+    .recommended-text {
+        font-size: 0.8rem;
+    }
+    
+    .discount-percent {
+        font-size: 1.8rem;
+    }
+    
+    /* Benefits Goods Image 390px */
+    .benefit-goods-image {
+        margin-top: 0.5rem;
+    }
+    
+    .goods-image {
+        max-width: 100%;
+        min-width: 240px;
+        border-radius: 5px;
+    }
+    
+    .total-savings {
+        margin-top: 1rem;
+        padding: 0.8rem;
+    }
+    
+    .savings-highlight {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .savings-highlight i {
+        font-size: 0.9rem;
     }
 }
 
@@ -765,6 +1759,23 @@ section {
         margin-bottom: 1rem;
     }
     
+    .hero-theme {
+        margin-bottom: 1rem;
+        gap: 0.6rem;
+    }
+    
+    .theme-label {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        margin-bottom: 0;
+    }
+    
+    .theme-badge {
+        font-size: 1.4rem;
+        padding: 0;
+        transform: none;
+    }
+    
     .hero-offer {
         padding: 1rem;
         margin: 1rem 0;
@@ -778,13 +1789,120 @@ section {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
-    
-    .option-card {
-        padding: 1.5rem;
+
+    .logo-icon {
+        height: 38px;
+        max-width: 56px;
+    }
+
+    .footer-logo-icon {
+        height: 26px;
+        max-width: 42px;
     }
     
+    .option-recommended {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .recommended-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .recommended-icon {
+        font-size: 1rem;
+    }
+    
+    .recommended-text {
+        font-size: 0.9rem;
+    }
+    
+    .option-section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .option-title {
+        font-size: 1.1rem;
+    }
+    
+    .option-price {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .option-content-grid {
+        gap: 0.8rem;
+    }
+    
+    .option-item {
+        padding: 0.8rem;
+    }
+    
+    /* Benefits Goods Image 480px */
+    .benefit-goods-image {
+        margin-top: 0.6rem;
+    }
+    
+    .goods-image {
+        max-width: 100%;
+        min-width: 260px;
+        border-radius: 6px;
+    }
+    
+    .discount-rate {
+        font-size: 1.1rem;
+    }
+    
+    .discount-example {
+        font-size: 0.8rem;
+        margin: 0.2rem 0;
+    }
+    
+    /* Ceramic Recommend 480px */
     .philosophy-details p {
         text-align: left;
+    }
+    
+    /* Extra Mobile Optimization for Small Screens */
+    .clinic-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .clinic-name {
+        font-size: 1.3rem;
+    }
+    
+    .clinic-address,
+    .clinic-phone {
+        font-size: 0.9rem;
+    }
+    
+    .clinic-actions .btn {
+        padding: 1.2rem 1rem;
+        font-size: 0.95rem;
+        min-height: 55px;
+    }
+    
+    .feature-tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .total-savings {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .savings-highlight {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+    
+    .savings-highlight i {
+        font-size: 1rem;
     }
 }
 
@@ -800,6 +1918,64 @@ a:focus {
     outline-offset: 2px;
 }
 
+/* Touch Target Optimization for Mobile */
+@media (max-width: 768px) {
+    /* Ensure all interactive elements are at least 44px */
+    .btn,
+    .mobile-nav-item,
+    .footer-phone,
+    .footer-website {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* QR Code Landing Optimization */
+    .hero-title {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-offer {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        border: 3px solid rgba(244, 222, 36, 0.5);
+    }
+    
+    /* Large touch targets for phone numbers */
+    .clinic-actions .btn {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Improved contrast for outdoor/bright screen usage */
+    .mobile-nav {
+        background: rgba(255, 255, 255, 0.98);
+        border-top: 2px solid var(--primary-color);
+    }
+    
+    .mobile-nav-phone,
+    .mobile-nav-phone-menu {
+        min-width: 60px;
+        min-height: 50px;
+        font-weight: 700;
+    }
+}
+
+/* Ultra-high contrast mode for accessibility */
+@media (prefers-contrast: high) {
+    .hero-offer {
+        border: 3px solid var(--text-dark);
+        background: rgba(255, 255, 255, 1);
+    }
+    
+    .btn-primary {
+        background: var(--text-dark);
+        border: 2px solid var(--text-dark);
+    }
+    
+    .clinic-card {
+        border: 3px solid var(--primary-color);
+    }
+}
+
 /* Loading animation for images */
 img {
     transition: opacity 0.3s ease;
@@ -813,49 +1989,263 @@ img[loading="lazy"].loaded {
     opacity: 1;
 }
 
-/* Mobile Phone Button */
-.mobile-phone-button {
+/* Mobile Navigation */
+.mobile-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 9999;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     border-top: 1px solid var(--border-color);
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
     display: none;
     /* Safe area for iOS devices */
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
-.mobile-phone-link {
+.mobile-nav-menu {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: var(--gradient-primary);
-    color: white;
+    padding: 0.5rem 0;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
+    color: var(--text-light);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-medium);
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    min-width: 60px;
+    border-radius: 10px;
 }
 
-.mobile-phone-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+.mobile-nav-item:hover {
+    color: var(--primary-color);
+    background: var(--background-section);
 }
 
-.mobile-phone-link i {
+.mobile-nav-item i {
     font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-item span {
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+.mobile-nav-course {
+    position: relative;
+    cursor: pointer;
+}
+
+.mobile-nav-submenu {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+    z-index: 10001;
+    margin-bottom: 8px;
+}
+
+.mobile-nav-submenu.show {
+    display: flex;
+}
+
+.mobile-nav-subitem {
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-nav-subitem:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-subitem:hover {
+    background: rgba(244, 222, 36, 0.1);
+    color: #f4de24;
+}
+
+/* モバイルデバイスでのタップ後のホバー状態を制御 */
+.mobile-nav-subitem:focus {
+    outline: none;
+    background: rgba(244, 222, 36, 0.1);
+    color: #f4de24;
+}
+
+.mobile-nav-subitem:active {
+    background: rgba(244, 222, 36, 0.2);
+    color: #f4de24;
+    transform: scale(0.98);
+}
+
+/* モバイルデバイスでのタップ後の状態リセット */
+@media (max-width: 768px) {
+    .mobile-nav-subitem {
+        transition: all 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* モバイルデバイスでのホバー効果を無効化 */
+    .mobile-nav-subitem:hover {
+        background: none;
+        color: inherit;
+    }
+}
+
+/* ホバー対応デバイスのみでホバー効果を有効化 */
+@media (hover: hover) {
+    .mobile-nav-subitem:hover {
+        background: rgba(244, 222, 36, 0.1);
+        color: #f4de24;
+    }
+}
+
+/* タップ時のフィードバック効果（モバイル用） */
+.mobile-nav-subitem.mobile-tapped {
+    background: rgba(244, 222, 36, 0.2);
+    color: #f4de24;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+/* ホバー状態の強制リセット */
+.mobile-nav-subitem.hover-disabled {
+    background: none !important;
+    color: inherit !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+.mobile-nav-subitem.hover-disabled:hover {
+    background: none !important;
+    color: inherit !important;
+    transform: none !important;
+}
+
+/* 追加の強制リセット（モバイル用） */
+@media (max-width: 768px) {
+    .mobile-nav-submenu a {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    
+    .mobile-nav-submenu a:hover {
+        background: none !important;
+        color: inherit !important;
+    }
+    
+    .mobile-nav-submenu a:focus {
+        outline: none;
+        background: none !important;
+        color: inherit !important;
+    }
+    
+    .mobile-nav-submenu a:active {
+        background: rgba(244, 222, 36, 0.1) !important;
+        color: #f4de24 !important;
+    }
+}
+
+.mobile-nav-course.active .mobile-nav-submenu {
+    display: flex;
+}
+
+.mobile-nav-phone-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.mobile-nav-phone-submenu {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+    z-index: 10001;
+    margin-bottom: 8px;
+}
+
+.mobile-nav-phone-submenu.show {
+    display: flex;
+}
+
+.mobile-nav-phone-menu.active .mobile-nav-phone-submenu {
+    display: flex;
+}
+
+.mobile-nav-phone-submenu a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.mobile-nav-phone-submenu a:hover {
+    background-color: #f4de24;
+    color: #fff;
+}
+
+.mobile-nav-phone,
+.mobile-nav-phone-menu {
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
+    color: white;
+    border-radius: 15px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-light);
+}
+
+.mobile-nav-phone:hover,
+.mobile-nav-phone-menu:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
+}
+
+.mobile-nav-phone-menu.active {
+    color: white;
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
+    transform: translateY(-2px);
+}
+
+.mobile-nav-phone i {
     animation: pulse 2s infinite;
 }
 
@@ -868,19 +2258,19 @@ img[loading="lazy"].loaded {
     }
 }
 
-/* Show mobile phone button only on mobile devices */
+/* Show mobile navigation only on mobile devices */
 @media (max-width: 768px) {
-    .mobile-phone-button {
+    .mobile-nav {
         display: block;
     }
     
-    /* Add padding to body to account for fixed button */
+    /* Add padding to body to account for fixed navigation */
     body {
-        padding-bottom: 100px;
+        padding-bottom: 80px;
     }
     
     /* Adjust footer padding */
     .footer {
-        padding-bottom: calc(2rem + 100px);
+        padding-bottom: calc(2rem + 80px);
     }
 }
