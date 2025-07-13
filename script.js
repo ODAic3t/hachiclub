@@ -253,12 +253,18 @@ function initializeMobileNavigation() {
         }
         
         .mobile-nav-course.active {
-            color: #f4de24;
+            color: #f4de24 !important;
+            background: none !important;
         }
         
         .mobile-nav-course.active i {
-            color: #f4de24;
+            color: #f4de24 !important;
             transform: scale(1.1);
+        }
+        
+        .mobile-nav-course.active:hover {
+            background: none !important;
+            color: #f4de24 !important;
         }
         
         .mobile-nav-subitem.active {
@@ -284,7 +290,12 @@ function initializeMobileNavigation() {
             }
             
             .mobile-nav-course.active {
-                background: none;
+                background: none !important;
+            }
+            
+            .mobile-nav-course.active:hover {
+                background: none !important;
+                color: #f4de24 !important;
             }
         }
     `;

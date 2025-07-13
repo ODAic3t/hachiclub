@@ -2026,9 +2026,20 @@ img[loading="lazy"].loaded {
     border-radius: 10px;
 }
 
-.mobile-nav-item:hover {
-    color: var(--primary-color);
-    background: var(--background-section);
+/* ホバー対応デバイスのみでホバー効果を有効化 */
+@media (hover: hover) {
+    .mobile-nav-item:hover {
+        color: var(--primary-color);
+        background: var(--background-section);
+    }
+}
+
+/* タッチデバイスでのホバー効果を無効化 */
+@media (hover: none) {
+    .mobile-nav-item:hover {
+        color: inherit;
+        background: none;
+    }
 }
 
 .mobile-nav-item i {
@@ -2168,6 +2179,17 @@ img[loading="lazy"].loaded {
     
     .mobile-nav-submenu a:active {
         background: rgba(244, 222, 36, 0.1) !important;
+        color: #f4de24 !important;
+    }
+    
+    /* モバイルでコースメニューのホバー効果を無効化 */
+    .mobile-nav-course:hover {
+        background: none !important;
+        color: inherit !important;
+    }
+    
+    .mobile-nav-course.active:hover {
+        background: none !important;
         color: #f4de24 !important;
     }
 }
