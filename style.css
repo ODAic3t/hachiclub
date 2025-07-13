@@ -2026,20 +2026,10 @@ img[loading="lazy"].loaded {
     border-radius: 10px;
 }
 
-/* ホバー対応デバイスのみでホバー効果を有効化 */
-@media (hover: hover) {
-    .mobile-nav-item:hover {
-        color: var(--primary-color);
-        background: var(--background-section);
-    }
-}
-
-/* タッチデバイスでのホバー効果を無効化 */
-@media (hover: none) {
-    .mobile-nav-item:hover {
-        color: inherit;
-        background: none;
-    }
+/* ホバー効果 */
+.mobile-nav-item:hover {
+    color: var(--primary-color);
+    background: var(--background-section);
 }
 
 .mobile-nav-item i {
@@ -2056,6 +2046,27 @@ img[loading="lazy"].loaded {
 .mobile-nav-course {
     position: relative;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.3s ease;
+    min-width: 60px;
+    border-radius: 10px;
+}
+
+.mobile-nav-course i {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-course span {
+    font-size: 0.7rem;
+    line-height: 1;
 }
 
 .mobile-nav-submenu {
@@ -2099,105 +2110,6 @@ img[loading="lazy"].loaded {
     color: #f4de24;
 }
 
-/* モバイルデバイスでのタップ後のホバー状態を制御 */
-.mobile-nav-subitem:focus {
-    outline: none;
-    background: rgba(244, 222, 36, 0.1);
-    color: #f4de24;
-}
-
-.mobile-nav-subitem:active {
-    background: rgba(244, 222, 36, 0.2);
-    color: #f4de24;
-    transform: scale(0.98);
-}
-
-/* モバイルデバイスでのタップ後の状態リセット */
-@media (max-width: 768px) {
-    .mobile-nav-subitem {
-        transition: all 0.3s ease;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    /* モバイルデバイスでのホバー効果を無効化 */
-    .mobile-nav-subitem:hover {
-        background: none;
-        color: inherit;
-    }
-}
-
-/* ホバー対応デバイスのみでホバー効果を有効化 */
-@media (hover: hover) {
-    .mobile-nav-subitem:hover {
-        background: rgba(244, 222, 36, 0.1);
-        color: #f4de24;
-    }
-}
-
-/* タップ時のフィードバック効果（モバイル用） */
-.mobile-nav-subitem.mobile-tapped {
-    background: rgba(244, 222, 36, 0.2);
-    color: #f4de24;
-    transform: scale(0.98);
-    transition: all 0.1s ease;
-}
-
-/* ホバー状態の強制リセット */
-.mobile-nav-subitem.hover-disabled {
-    background: none !important;
-    color: inherit !important;
-    transition: none !important;
-    transform: none !important;
-}
-
-.mobile-nav-subitem.hover-disabled:hover {
-    background: none !important;
-    color: inherit !important;
-    transform: none !important;
-}
-
-/* 追加の強制リセット（モバイル用） */
-@media (max-width: 768px) {
-    .mobile-nav-submenu a {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-    
-    .mobile-nav-submenu a:hover {
-        background: none !important;
-        color: inherit !important;
-    }
-    
-    .mobile-nav-submenu a:focus {
-        outline: none;
-        background: none !important;
-        color: inherit !important;
-    }
-    
-    .mobile-nav-submenu a:active {
-        background: rgba(244, 222, 36, 0.1) !important;
-        color: #f4de24 !important;
-    }
-    
-    /* モバイルでコースメニューのホバー効果を無効化 */
-    .mobile-nav-course:hover {
-        background: none !important;
-        color: inherit !important;
-    }
-    
-    .mobile-nav-course.active:hover {
-        background: none !important;
-        color: #f4de24 !important;
-    }
-}
-
-.mobile-nav-course.active .mobile-nav-submenu {
-    display: flex;
-}
-
 .mobile-nav-phone-menu {
     position: relative;
     cursor: pointer;
@@ -2224,10 +2136,6 @@ img[loading="lazy"].loaded {
     display: flex;
 }
 
-.mobile-nav-phone-menu.active .mobile-nav-phone-submenu {
-    display: flex;
-}
-
 .mobile-nav-phone-submenu a {
     color: #333;
     text-decoration: none;
@@ -2245,12 +2153,21 @@ img[loading="lazy"].loaded {
 
 .mobile-nav-phone,
 .mobile-nav-phone-menu {
-    background: linear-gradient(135deg, #f4de24, #e6c61a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
     color: white;
-    border-radius: 15px;
-    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
     font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.3s ease;
+    min-width: 60px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
     box-shadow: var(--shadow-light);
+    cursor: pointer;
+    position: relative;
 }
 
 .mobile-nav-phone:hover,
@@ -2261,14 +2178,18 @@ img[loading="lazy"].loaded {
     background: linear-gradient(135deg, #f4de24, #e6c61a);
 }
 
-.mobile-nav-phone-menu.active {
-    color: white;
-    background: linear-gradient(135deg, #f4de24, #e6c61a);
-    transform: translateY(-2px);
+.mobile-nav-phone i,
+.mobile-nav-phone-menu i {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
-.mobile-nav-phone i {
-    animation: pulse 2s infinite;
+.mobile-nav-phone span,
+.mobile-nav-phone-menu span {
+    font-size: 0.7rem;
+    line-height: 1;
 }
 
 @keyframes pulse {
@@ -2278,6 +2199,29 @@ img[loading="lazy"].loaded {
     50% {
         transform: scale(1.1);
     }
+}
+
+/* アクティブ状態の管理 */
+.mobile-nav-item.active {
+    color: var(--primary-color);
+    background: var(--background-section);
+}
+
+.mobile-nav-item.active i {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.mobile-nav-course.active,
+.mobile-nav-course:hover {
+    color: var(--primary-color);
+    background: var(--background-section);
+}
+
+.mobile-nav-course.active i,
+.mobile-nav-course:hover i {
+    color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 /* Show mobile navigation only on mobile devices */

@@ -16,11 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 電話番号クリック追跡
     initializePhoneTracking();
     
-    // モバイルナビゲーション
+    // モバイルナビゲーション（簡素化版）
     initializeMobileNavigation();
-    
-    // 医院選択追跡
-    initializeClinicTracking();
 });
 
 // FAQ機能の初期化（常に表示バージョン）
@@ -131,14 +128,6 @@ function initializeAnimations() {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .option-card.animate-on-scroll {
-            transform: translateY(50px);
-        }
-        
-        .option-card.animate-on-scroll.animate {
-            transform: translateY(0);
-        }
     `;
     document.head.appendChild(style);
 }
@@ -153,7 +142,7 @@ function initializePhoneTracking() {
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'phone_click', {
                     'event_category': 'contact',
-                    'event_label': 'header_phone'
+                    'event_label': 'phone_click'
                 });
             }
             
@@ -163,18 +152,16 @@ function initializePhoneTracking() {
     });
 }
 
-// モバイルナビゲーション機能
+// モバイルナビゲーション（簡素化版）
 function initializeMobileNavigation() {
-    const mobileNavItems = document.querySelectorAll('.mobile-nav-item:not(.mobile-nav-phone):not(.mobile-nav-course)');
+    // 基本的なアクティブ状態の管理のみ
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
     const sections = document.querySelectorAll('section[id]');
     
-    // コースサブメニューの初期化
-    initializeCourseSubmenu();
+    // サブメニューの初期化
+    initializeSubmenus();
     
-    // 電話サブメニューの初期化
-    initializePhoneSubmenu();
-    
-    // アクティブな状態の管理
+    // アクティブ状態の更新
     function updateActiveNavItem() {
         const scrollPosition = window.scrollY + 100;
         
@@ -197,26 +184,6 @@ function initializeMobileNavigation() {
                 item.classList.remove('active');
             }
         });
-        
-        // コースサブメニューのアクティブ状態
-        const courseSubmenu = document.querySelector('.mobile-nav-course');
-        const courseSubItems = document.querySelectorAll('.mobile-nav-subitem');
-        courseSubItems.forEach(item => {
-            const href = item.getAttribute('href');
-            if (href === `#${currentSection}`) {
-                item.classList.add('active');
-                courseSubmenu.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-        
-        // コースメニュー全体のアクティブ状態
-        if (currentSection === 'basic-course' || currentSection === 'option-course') {
-            courseSubmenu.classList.add('active');
-        } else {
-            courseSubmenu.classList.remove('active');
-        }
     }
     
     // スクロールイベントリスナー
@@ -224,374 +191,92 @@ function initializeMobileNavigation() {
     
     // 初期化時にアクティブ状態を設定
     updateActiveNavItem();
-    
-    // モバイルナビゲーションの電話番号クリック追跡
-    const mobilePhoneButtons = document.querySelectorAll('.mobile-nav-phone-submenu a');
-    mobilePhoneButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'phone_click', {
-                    'event_category': 'contact',
-                    'event_label': 'mobile_nav_phone'
-                });
-            }
-            console.log('Mobile nav phone clicked:', this.href);
-        });
-    });
-    
-    // アクティブ状態のスタイルをCSSに追加
-    const style = document.createElement('style');
-    style.textContent = `
-        .mobile-nav-item.active {
-            color: var(--primary-color);
-            background: var(--background-section);
-        }
-        
-        .mobile-nav-item.active i {
-            color: var(--primary-color);
-            transform: scale(1.1);
-        }
-        
-        .mobile-nav-course.active {
-            color: #f4de24 !important;
-            background: none !important;
-        }
-        
-        .mobile-nav-course.active i {
-            color: #f4de24 !important;
-            transform: scale(1.1);
-        }
-        
-        .mobile-nav-course.active:hover {
-            background: none !important;
-            color: #f4de24 !important;
-        }
-        
-        .mobile-nav-subitem.active {
-            background: rgba(244, 222, 36, 0.2);
-            color: #f4de24;
-            font-weight: 600;
-        }
-        
-        .mobile-nav-phone-menu.active {
-            color: white;
-            background: linear-gradient(135deg, #f4de24, #e6c61a);
-            transform: translateY(-2px);
-        }
-        
-        .mobile-nav-phone-menu.active i {
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-nav-item.active {
-                color: #f4de24;
-            }
-            
-            .mobile-nav-course.active {
-                background: none !important;
-            }
-            
-            .mobile-nav-course.active:hover {
-                background: none !important;
-                color: #f4de24 !important;
-            }
-        }
-    `;
-    document.head.appendChild(style);
 }
 
-// コースサブメニューの初期化
-function initializeCourseSubmenu() {
+// サブメニューの初期化（簡素化版）
+function initializeSubmenus() {
+    // コースサブメニュー
     const courseMenu = document.querySelector('.mobile-nav-course');
-    const submenu = document.querySelector('.mobile-nav-submenu');
+    const courseSubmenu = document.querySelector('.mobile-nav-submenu');
     
-    if (!courseMenu || !submenu) return;
-    
-    // コースメニューのクリックイベント
-    courseMenu.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // サブメニューの表示/非表示を切り替え
-        submenu.classList.toggle('show');
-        
-        // 他のサブメニューが開いている場合は閉じる
-        const otherSubmenus = document.querySelectorAll('.mobile-nav-submenu:not(.show)');
-        otherSubmenus.forEach(menu => {
-            if (menu !== submenu) {
-                menu.classList.remove('show');
+    if (courseMenu && courseSubmenu) {
+        courseMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            courseSubmenu.classList.toggle('show');
+            
+            // 他のサブメニューを閉じる
+            const phoneSubmenu = document.querySelector('.mobile-nav-phone-submenu');
+            if (phoneSubmenu) {
+                phoneSubmenu.classList.remove('show');
             }
         });
-    });
-    
-    // サブメニューアイテムのクリックイベント
-    const subItems = document.querySelectorAll('.mobile-nav-subitem');
-    subItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // タップ後のホバー状態を解除
-            this.blur();
-            
-            // サブメニューを閉じる
-            submenu.classList.remove('show');
-            
-            // モバイルデバイスでのホバー状態を完全にリセット
-            if (window.innerWidth <= 768) {
-                console.log('Resetting hover states for mobile...');
-                const allSubItems = document.querySelectorAll('.mobile-nav-subitem');
-                allSubItems.forEach(subItem => {
-                    // 既存のスタイルを強制的にリセット
-                    subItem.style.background = '';
-                    subItem.style.color = '';
-                    subItem.style.transform = '';
-                    subItem.style.transition = 'none';
-                    subItem.style.pointerEvents = 'none';
-                    
-                    // 全てのクラスを削除
-                    subItem.classList.remove('mobile-hover', 'mobile-tapped', 'hover-disabled');
-                    
-                    // 一時的にホバー無効化クラスを追加
-                    subItem.classList.add('hover-disabled');
-                    
-                    // 疑似クラスのホバー状態をリセット
-                    subItem.blur();
-                });
+        
+        // サブメニューアイテムのクリック
+        const subItems = courseSubmenu.querySelectorAll('.mobile-nav-subitem');
+        subItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                courseSubmenu.classList.remove('show');
                 
-                // 一時的に無効化後、再度有効化
-                setTimeout(() => {
-                    allSubItems.forEach(subItem => {
-                        subItem.style.pointerEvents = 'auto';
-                        subItem.style.transition = 'all 0.3s ease';
-                        subItem.classList.remove('hover-disabled');
+                // スムーズスクロール
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
-                }, 400);
-            }
-            
-            // スムーズスクロール
-            const href = this.getAttribute('href');
-            const target = document.querySelector(href);
-            if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-        
-        // タッチイベントでのホバー状態制御
-        item.addEventListener('touchstart', function(e) {
-            if (window.innerWidth <= 768) {
-                // タップ時の視覚的フィードバック
-                this.classList.add('mobile-tapped');
-                this.classList.add('hover-disabled');
-            }
-        });
-        
-        item.addEventListener('touchend', function(e) {
-            if (window.innerWidth <= 768) {
-                // タップ後の状態をリセット
-                setTimeout(() => {
-                    this.classList.remove('mobile-tapped');
-                    this.classList.remove('hover-disabled');
-                }, 150);
-            }
-        });
-        
-        // マウスリーブイベントでホバー状態をリセット（追加の安全策）
-        item.addEventListener('mouseleave', function(e) {
-            if (window.innerWidth <= 768) {
-                this.classList.remove('mobile-tapped');
-                this.classList.add('hover-disabled');
-                setTimeout(() => {
-                    this.classList.remove('hover-disabled');
-                }, 100);
-            }
-        });
-    });
-    
-    // サブメニュー外をクリックしたら閉じる
-    document.addEventListener('click', function(e) {
-        if (!courseMenu.contains(e.target)) {
-            submenu.classList.remove('show');
-            
-            // サブメニューが閉じられた時にホバー状態をリセット
-            if (window.innerWidth <= 768) {
-                const allSubItems = document.querySelectorAll('.mobile-nav-subitem');
-                allSubItems.forEach(subItem => {
-                    subItem.style.background = '';
-                    subItem.style.color = '';
-                    subItem.style.transform = '';
-                    subItem.blur();
-                    subItem.classList.remove('mobile-hover', 'mobile-tapped');
-                });
-            }
-        }
-    });
-    
-    // 追加の強制リセット機能
-    function forceResetHoverStates() {
-        if (window.innerWidth <= 768) {
-            const allSubItems = document.querySelectorAll('.mobile-nav-subitem');
-            allSubItems.forEach(subItem => {
-                // 全てのスタイルをリセット
-                subItem.style.cssText = '';
-                subItem.blur();
-                subItem.classList.remove('mobile-hover', 'mobile-tapped', 'hover-disabled');
-                
-                // 一時的にホバー無効化
-                subItem.classList.add('hover-disabled');
-                
-                // 短時間後にクラスを削除
-                setTimeout(() => {
-                    subItem.classList.remove('hover-disabled');
-                }, 200);
-            });
-        }
-    }
-    
-    // ウィンドウの向きが変わった時や、サイズが変わった時にリセット
-    window.addEventListener('resize', forceResetHoverStates);
-    window.addEventListener('orientationchange', forceResetHoverStates);
-}
-
-// 電話サブメニューの初期化
-function initializePhoneSubmenu() {
-    const phoneMenu = document.querySelector('.mobile-nav-phone-menu');
-    const submenu = document.querySelector('.mobile-nav-phone-submenu');
-    
-    if (!phoneMenu || !submenu) return;
-    
-    // 電話メニューのクリックイベント
-    phoneMenu.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // サブメニューの表示/非表示を切り替え
-        submenu.classList.toggle('show');
-        
-        // 他のサブメニューが開いている場合は閉じる
-        const otherSubmenus = document.querySelectorAll('.mobile-nav-submenu');
-        otherSubmenus.forEach(menu => {
-            if (menu !== submenu) {
-                menu.classList.remove('show');
-            }
-        });
-    });
-    
-    // サブメニューアイテムのクリックイベント
-    const subItems = document.querySelectorAll('.mobile-nav-phone-submenu a');
-    subItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // サブメニューを閉じる
-            submenu.classList.remove('show');
-            
-            // 電話をかける（デフォルトの動作）
-            // 別途追跡イベントは既に設定済み
-        });
-    });
-    
-    // サブメニュー外をクリックしたら閉じる
-    document.addEventListener('click', function(e) {
-        if (!phoneMenu.contains(e.target)) {
-            submenu.classList.remove('show');
-        }
-    });
-}
-
-// 医院選択追跡機能
-function initializeClinicTracking() {
-    // 医院のホームページリンク追跡
-    const clinicWebsiteLinks = document.querySelectorAll('a[href*="hachishika.com"]');
-    clinicWebsiteLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const clinicName = this.href.includes('sakuranamiki') ? '桜並木はち歯科医院' : 'はち歯科医院';
-            
-            // Google Analytics追跡
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'clinic_website_click', {
-                    'event_category': 'clinic_selection',
-                    'event_label': clinicName,
-                    'value': 1
-                });
-            }
-            
-            // コンソールログ（開発用）
-            console.log('Clinic website clicked:', clinicName, this.href);
-        });
-    });
-    
-    // 医院の電話番号追跡（医院別）
-    const clinicPhoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    clinicPhoneLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const phoneNumber = this.href.replace('tel:', '');
-            let clinicName = '';
-            let eventLabel = '';
-            
-            if (phoneNumber.includes('092-504-2323')) {
-                clinicName = 'はち歯科医院';
-                eventLabel = 'hachi_main';
-            } else if (phoneNumber.includes('092-404-2098')) {
-                clinicName = '桜並木はち歯科医院';
-                eventLabel = 'hachi_sakuranamiki';
-            } else {
-                clinicName = '一般';
-                eventLabel = 'general';
-            }
-            
-            // Google Analytics追跡
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'clinic_phone_click', {
-                    'event_category': 'clinic_contact',
-                    'event_label': eventLabel,
-                    'clinic_name': clinicName,
-                    'phone_number': phoneNumber
-                });
-            }
-            
-            // コンソールログ（開発用）
-            console.log('Clinic phone clicked:', clinicName, phoneNumber);
-        });
-    });
-    
-    // QRコードからのアクセス検出
-    const urlParams = new URLSearchParams(window.location.search);
-    const source = urlParams.get('source');
-    const clinic = urlParams.get('clinic');
-    
-    if (source === 'qr') {
-        // QRコードアクセスの追跡
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'qr_code_access', {
-                'event_category': 'traffic_source',
-                'event_label': clinic || 'unknown',
-                'value': 1
-            });
-        }
-        
-        console.log('QR Code access detected:', clinic || 'unknown clinic');
-        
-        // QRコードアクセス時に該当医院セクションにスクロール
-        if (clinic) {
-            setTimeout(() => {
-                const clinicSection = document.getElementById('clinic-selection');
-                if (clinicSection) {
-                    clinicSection.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 1000);
-        }
+            });
+        });
     }
+    
+    // 電話サブメニュー
+    const phoneMenu = document.querySelector('.mobile-nav-phone-menu');
+    const phoneSubmenu = document.querySelector('.mobile-nav-phone-submenu');
+    
+    if (phoneMenu && phoneSubmenu) {
+        phoneMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            phoneSubmenu.classList.toggle('show');
+            
+            // 他のサブメニューを閉じる
+            if (courseSubmenu) {
+                courseSubmenu.classList.remove('show');
+            }
+        });
+        
+        // 電話サブメニューアイテムのクリック
+        const phoneSubItems = phoneSubmenu.querySelectorAll('.mobile-nav-subitem');
+        phoneSubItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                // e.preventDefault()を呼び出さない（電話をかけるため）
+                phoneSubmenu.classList.remove('show');
+                
+                // 電話をかける（デフォルトの動作を許可）
+                console.log('Phone clicked:', this.href);
+            });
+        });
+    }
+    
+    // 外側をクリックしたらサブメニューを閉じる
+    document.addEventListener('click', function(e) {
+        const isClickInsideSubmenu = e.target.closest('.mobile-nav-course') || 
+                                   e.target.closest('.mobile-nav-phone-menu') ||
+                                   e.target.closest('.mobile-nav-submenu') ||
+                                   e.target.closest('.mobile-nav-phone-submenu');
+        
+        if (!isClickInsideSubmenu) {
+            if (courseSubmenu) courseSubmenu.classList.remove('show');
+            if (phoneSubmenu) phoneSubmenu.classList.remove('show');
+        }
+    });
 }
 
-// ページロード時のパフォーマンス最適化
+// ページロード時の処理
 window.addEventListener('load', function() {
     // 遅延画像読み込み
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
@@ -614,48 +299,9 @@ window.addEventListener('load', function() {
     }
 });
 
-// リサイズ時の処理
-window.addEventListener('resize', function() {
-    // FAQ常に表示のため、高さ調整は不要
-    // 必要に応じて他のリサイズ処理をここに追加
-});
-
 // エラーハンドリング
 window.addEventListener('error', function(e) {
     console.warn('JavaScript error occurred:', e.error);
-});
-
-// タッチデバイス対応
-if ('ontouchstart' in window) {
-    document.body.classList.add('touch-device');
-    
-    // タッチデバイス用のCSSを追加
-    const touchStyle = document.createElement('style');
-    touchStyle.textContent = `
-        .touch-device .option-card:hover,
-        .touch-device .faq-question:hover {
-            transform: none;
-        }
-        
-        .touch-device .btn:hover {
-            transform: none;
-        }
-    `;
-    document.head.appendChild(touchStyle);
-}
-
-// PWA対応（Service Worker）
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        // Service Workerがある場合は登録
-        // navigator.serviceWorker.register('/sw.js');
-    });
-}
-
-// アクセシビリティ向上
-document.addEventListener('keydown', function(e) {
-    // FAQ常に表示のため、Escキーでの閉じる機能は不要
-    // 必要に応じて他のキーボード操作をここに追加
 });
 
 // 外部リンクに target="_blank" と rel="noopener" を自動追加
