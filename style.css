@@ -513,6 +513,29 @@ section {
     font-size: 1.1rem;
 }
 
+.section-price {
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+}
+
+.course-price {
+    display: inline-block;
+    background: linear-gradient(135deg, #f4de24, #e6c61a);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(244, 222, 36, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.course-price small {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 /* Philosophy Section */
 .philosophy-content {
     max-width: 800px;
@@ -1759,6 +1782,20 @@ section {
     
     .character-hakun {
         width: 150px;
+    }
+    
+    /* Course Price - Mobile */
+    .section-price {
+        margin: 0.5rem 0 1.5rem 0;
+    }
+    
+    .course-price {
+        font-size: 1.2rem;
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .course-price small {
+        font-size: 0.9rem;
     }
     
     /* Additional Info - Mobile */
