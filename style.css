@@ -661,11 +661,6 @@ section {
     justify-content: center;
 }
 
-.play-icon {
-    color: var(--text-dark);
-    font-size: 0.8rem;
-}
-
 .free-text {
     color: var(--text-dark);
     font-weight: 700;
